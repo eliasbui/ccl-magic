@@ -8,9 +8,9 @@ import (
 	"testing"
 
 	"charm.land/fantasy"
-	"github.com/charmbracelet/crush/internal/agent/tools"
-	"github.com/charmbracelet/crush/internal/message"
-	"github.com/charmbracelet/crush/internal/shell"
+	"github.com/eliasbui/ccl-magic/internal/agent/tools"
+	"github.com/eliasbui/ccl-magic/internal/message"
+	"github.com/eliasbui/ccl-magic/internal/shell"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/dnaeon/go-vcr.v4/pkg/recorder"

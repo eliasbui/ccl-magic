@@ -1,0 +1,254 @@
+{
+  "$schema": "https://charm.land/ccl-magic.json",
+  "models": {
+    "large": {
+      "model": "claude-sonnet-4-20250514",
+      "provider": "anthropic"
+    },
+    "small": {
+      "model": "claude-haiku-3-5-20241022",
+      "provider": "anthropic"
+    }
+  },
+  "providers": {
+    "anthropic": {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "type": "anthropic",
+      "api_key": "$ANTHROPIC_API_KEY"
+    }
+  },
+  "department": {
+    "enabled": true,
+    "auto_scaling": {
+      "enabled": true,
+      "check_interval": "2m",
+      "scale_up_threshold": 0.8,
+      "scale_down_threshold": 0.2,
+      "max_members_per_department": 15,
+      "cooldown_period": "5m",
+      "role_scaling": {
+        "developer": 6,
+        "lead_dev": 2,
+        "ba": 3,
+        "lead_ba": 1,
+        "pm": 2,
+        "po": 1,
+        "lead_technical": 1,
+        "devops": 3,
+        "qa": 4,
+        "lead_test": 1,
+        "security": 2
+      }
+    },
+    "health_check": {
+      "enabled": true,
+      "check_interval": "30s",
+      "timeout": "10s",
+      "unhealthy_threshold": 3,
+      "retry_count": 2,
+      "role_specific_checks": {
+        "developer": {
+          "response_time": "5s",
+          "task_success": 0.85,
+          "uptime": 0.95
+        },
+        "lead_dev": {
+          "response_time": "3s",
+          "task_success": 0.9,
+          "uptime": 0.98
+        },
+        "devops": {
+          "response_time": "4s",
+          "task_success": 0.88,
+          "uptime": 0.96
+        },
+        "qa": {
+          "response_time": "6s",
+          "task_success": 0.87,
+          "uptime": 0.94
+        }
+      }
+    },
+    "task_routing": {
+      "strategy": "skill-based",
+      "department_rules": {
+        "dept-dev": ["feature", "bug", "code", "implement", "develop"],
+        "dept-devops": ["deploy", "ci", "cd", "infrastructure", "monitoring"],
+        "dept-security": ["security", "vulnerability", "audit", "compliance"],
+        "dept-qa": ["test", "qa", "testing", "quality", "validation"]
+      },
+      "role_rules": {
+        "ba": ["requirement", "analysis", "user story", "business"],
+        "pm": ["project", "plan", "timeline", "coordination"],
+        "po": ["product", "backlog", "prioritization", "vision"],
+        "lead_technical": ["architecture", "design", "technical lead"],
+        "lead_dev": ["code review", "mentor", "technical guidance"],
+        "lead_test": ["test strategy", "quality assurance", "test lead"],
+        "developer": ["code", "implement", "develop", "feature"],
+        "devops": ["deployment", "ci/cd", "infrastructure", "monitoring"],
+        "qa": ["test", "quality", "validation", "bug"],
+        "security": ["security", "vulnerability", "compliance", "audit"]
+      },
+      "default_department": "dept-dev",
+      "default_role": "developer",
+      "fallback_enabled": true
+    },
+    "notifications": {
+      "enabled": true,
+      "events": ["task_created", "task_completed", "task_failed", "member_joined", "member_left", "department_scaled"],
+      "channels": ["log", "dashboard"],
+      "rate_limit": 10,
+      "role_notifications": {
+        "lead_dev": ["task_failed", "member_unhealthy"],
+        "lead_test": ["test_completed", "quality_issue"],
+        "pm": ["project_delay", "resource_shortage"]
+      }
+    },
+    "reporting": {
+      "enabled": true,
+      "report_interval": "15m",
+      "metrics": ["throughput", "quality", "utilization", "response_time"],
+      "export_formats": ["json", "csv"],
+      "role_reports": ["performance", "workload", "collaboration"]
+    },
+    "roles": {
+      "role_definitions": {
+        "ba": {
+          "name": "Business Analyst",
+          "description": "Analyzes business requirements and creates user stories",
+          "lead_role": false,
+          "department_types": ["development"],
+          "responsibilities": ["requirement elicitation", "user story creation", "business process analysis"],
+          "required_skills": ["analysis", "communication", "business_acumen"],
+          "can_assign_to": ["developer", "qa"],
+          "max_concurrent": 3,
+          "default_tools": ["view", "edit", "write", "fetch"]
+        },
+        "pm": {
+          "name": "Project Manager",
+          "description": "Manages project timelines and coordinates team activities",
+          "lead_role": false,
+          "department_types": ["development", "devops", "qa"],
+          "responsibilities": ["project planning", "resource management", "risk assessment"],
+          "required_skills": ["planning", "coordination", "leadership"],
+          "can_assign_to": ["ba", "developer", "devops", "qa"],
+          "max_concurrent": 5,
+          "default_tools": ["view", "edit", "bash", "fetch"]
+        },
+        "po": {
+          "name": "Product Owner",
+          "description": "Defines product vision and manages product backlog",
+          "lead_role": false,
+          "department_types": ["development"],
+          "responsibilities": ["product vision", "backlog management", "stakeholder communication"],
+          "required_skills": ["product_management", "prioritization", "communication"],
+          "can_assign_to": ["ba", "developer"],
+          "max_concurrent": 4,
+          "default_tools": ["view", "edit", "write"]
+        },
+        "lead_technical": {
+          "name": "Technical Lead",
+          "description": "Provides technical leadership and architecture guidance",
+          "lead_role": true,
+          "department_types": ["development", "devops"],
+          "responsibilities": ["architecture design", "technical mentoring", "code review"],
+          "required_skills": ["architecture", "leadership", "system_design"],
+          "can_assign_to": ["developer", "lead_dev", "devops"],
+          "max_concurrent": 2,
+          "default_tools": ["view", "edit", "bash", "fetch", "grep", "glob"]
+        },
+        "lead_dev": {
+          "name": "Development Lead",
+          "description": "Leads development team and ensures code quality",
+          "lead_role": true,
+          "department_types": ["development"],
+          "responsibilities": ["code review", "team coordination", "technical guidance"],
+          "required_skills": ["coding", "leadership", "mentoring"],
+          "can_assign_to": ["developer"],
+          "max_concurrent": 2,
+          "default_tools": ["view", "edit", "bash", "grep", "glob", "write"]
+        },
+        "lead_test": {
+          "name": "QA Lead",
+          "description": "Leads testing efforts and quality assurance initiatives",
+          "lead_role": true,
+          "department_types": ["qa"],
+          "responsibilities": ["test strategy", "quality assurance", "test automation"],
+          "required_skills": ["testing", "quality_assurance", "leadership"],
+          "can_assign_to": ["qa"],
+          "max_concurrent": 2,
+          "default_tools": ["view", "edit", "bash", "fetch"]
+        },
+        "developer": {
+          "name": "Software Developer",
+          "description": "Develops software features and fixes bugs",
+          "lead_role": false,
+          "department_types": ["development"],
+          "responsibilities": ["coding", "debugging", "unit testing", "code review"],
+          "required_skills": ["coding", "debugging", "problem_solving"],
+          "max_concurrent": 3,
+          "default_tools": ["view", "edit", "bash", "grep", "glob", "write"]
+        },
+        "devops": {
+          "name": "DevOps Engineer",
+          "description": "Manages CI/CD pipelines and infrastructure",
+          "lead_role": false,
+          "department_types": ["devops"],
+          "responsibilities": ["deployment", "monitoring", "infrastructure", "automation"],
+          "required_skills": ["devops", "infrastructure", "monitoring"],
+          "max_concurrent": 4,
+          "default_tools": ["view", "edit", "bash", "fetch"]
+        },
+        "qa": {
+          "name": "QA Engineer",
+          "description": "Performs testing and quality assurance",
+          "lead_role": false,
+          "department_types": ["qa"],
+          "responsibilities": ["testing", "bug reporting", "test automation"],
+          "required_skills": ["testing", "attention_to_detail", "automation"],
+          "max_concurrent": 4,
+          "default_tools": ["view", "edit", "bash", "fetch"]
+        },
+        "security": {
+          "name": "Security Engineer",
+          "description": "Performs security analysis and vulnerability assessment",
+          "lead_role": false,
+          "department_types": ["security"],
+          "responsibilities": ["security analysis", "vulnerability assessment", "compliance"],
+          "required_skills": ["security", "penetration_testing", "compliance"],
+          "max_concurrent": 3,
+          "default_tools": ["view", "edit", "bash", "fetch", "grep"]
+        }
+      },
+      "permissions": {
+        "ba": ["view", "edit", "write", "fetch"],
+        "pm": ["view", "edit", "bash", "fetch", "grep"],
+        "po": ["view", "edit", "write"],
+        "lead_technical": ["view", "edit", "bash", "fetch", "grep", "glob"],
+        "lead_dev": ["view", "edit", "bash", "grep", "glob", "write"],
+        "lead_test": ["view", "edit", "bash", "fetch"],
+        "developer": ["view", "edit", "bash", "grep", "glob", "write"],
+        "devops": ["view", "edit", "bash", "fetch"],
+        "qa": ["view", "edit", "bash", "fetch"],
+        "security": ["view", "edit", "bash", "fetch", "grep"]
+      },
+      "capabilities": {
+        "ba": ["requirements_analysis", "user_stories", "process_modeling"],
+        "pm": ["project_planning", "risk_assessment", "resource_management"],
+        "po": ["product_vision", "backlog_management", "stakeholder_management"],
+        "lead_technical": ["architecture_design", "code_review", "technical_mentoring"],
+        "lead_dev": ["development", "code_review", "team_coordination"],
+        "lead_test": ["test_strategy", "quality_assurance", "test_mentoring"],
+        "developer": ["coding", "debugging", "unit_testing"],
+        "devops": ["ci_cd", "deployment", "infrastructure", "monitoring"],
+        "qa": ["testing", "test_automation", "quality_assurance"],
+        "security": ["security_analysis", "vulnerability_assessment", "compliance"]
+      }
+    }
+  },
+  "options": {
+    "debug": false,
+    "disable_auto_summarize": false
+  }
+}

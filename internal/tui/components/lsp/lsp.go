@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/charmbracelet/crush/internal/app"
-	"github.com/charmbracelet/crush/internal/config"
-	"github.com/charmbracelet/crush/internal/csync"
-	"github.com/charmbracelet/crush/internal/lsp"
-	"github.com/charmbracelet/crush/internal/tui/components/core"
-	"github.com/charmbracelet/crush/internal/tui/styles"
+	"github.com/eliasbui/ccl-magic/internal/app"
+	"github.com/eliasbui/ccl-magic/internal/config"
+	"github.com/eliasbui/ccl-magic/internal/csync"
+	"github.com/eliasbui/ccl-magic/internal/lsp"
+	"github.com/eliasbui/ccl-magic/internal/tui/components/core"
+	"github.com/eliasbui/ccl-magic/internal/tui/styles"
 	"github.com/charmbracelet/lipgloss/v2"
 	"github.com/charmbracelet/x/powernap/pkg/lsp/protocol"
 )

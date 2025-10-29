@@ -8,7 +8,7 @@ import (
 	"strings"
 	"sync/atomic"
 
-	"github.com/charmbracelet/crush/internal/fsext"
+	"github.com/eliasbui/ccl-magic/internal/fsext"
 )
 
 const (

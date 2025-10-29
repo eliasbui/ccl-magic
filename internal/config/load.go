@@ -16,11 +16,11 @@ import (
 	"strings"
 
 	"github.com/charmbracelet/catwalk/pkg/catwalk"
-	"github.com/charmbracelet/crush/internal/csync"
-	"github.com/charmbracelet/crush/internal/env"
-	"github.com/charmbracelet/crush/internal/fsext"
-	"github.com/charmbracelet/crush/internal/home"
-	"github.com/charmbracelet/crush/internal/log"
+	"github.com/eliasbui/ccl-magic/internal/csync"
+	"github.com/eliasbui/ccl-magic/internal/env"
+	"github.com/eliasbui/ccl-magic/internal/fsext"
+	"github.com/eliasbui/ccl-magic/internal/home"
+	"github.com/eliasbui/ccl-magic/internal/log"
 	powernapConfig "github.com/charmbracelet/x/powernap/pkg/config"
 )
 

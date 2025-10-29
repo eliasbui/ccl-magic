@@ -9,20 +9,20 @@ import (
 	"github.com/charmbracelet/bubbles/v2/spinner"
 	tea "github.com/charmbracelet/bubbletea/v2"
 	"github.com/charmbracelet/catwalk/pkg/catwalk"
-	"github.com/charmbracelet/crush/internal/agent"
-	"github.com/charmbracelet/crush/internal/config"
-	"github.com/charmbracelet/crush/internal/home"
-	"github.com/charmbracelet/crush/internal/tui/components/chat"
-	"github.com/charmbracelet/crush/internal/tui/components/core"
-	"github.com/charmbracelet/crush/internal/tui/components/core/layout"
-	"github.com/charmbracelet/crush/internal/tui/components/dialogs/models"
-	"github.com/charmbracelet/crush/internal/tui/components/logo"
-	lspcomponent "github.com/charmbracelet/crush/internal/tui/components/lsp"
-	"github.com/charmbracelet/crush/internal/tui/components/mcp"
-	"github.com/charmbracelet/crush/internal/tui/exp/list"
-	"github.com/charmbracelet/crush/internal/tui/styles"
-	"github.com/charmbracelet/crush/internal/tui/util"
-	"github.com/charmbracelet/crush/internal/version"
+	"github.com/eliasbui/ccl-magic/internal/agent"
+	"github.com/eliasbui/ccl-magic/internal/config"
+	"github.com/eliasbui/ccl-magic/internal/home"
+	"github.com/eliasbui/ccl-magic/internal/tui/components/chat"
+	"github.com/eliasbui/ccl-magic/internal/tui/components/core"
+	"github.com/eliasbui/ccl-magic/internal/tui/components/core/layout"
+	"github.com/eliasbui/ccl-magic/internal/tui/components/dialogs/models"
+	"github.com/eliasbui/ccl-magic/internal/tui/components/logo"
+	lspcomponent "github.com/eliasbui/ccl-magic/internal/tui/components/lsp"
+	"github.com/eliasbui/ccl-magic/internal/tui/components/mcp"
+	"github.com/eliasbui/ccl-magic/internal/tui/exp/list"
+	"github.com/eliasbui/ccl-magic/internal/tui/styles"
+	"github.com/eliasbui/ccl-magic/internal/tui/util"
+	"github.com/eliasbui/ccl-magic/internal/version"
 	"github.com/charmbracelet/lipgloss/v2"
 )
 
@@ -465,7 +465,7 @@ func (s *splashCmp) View() string {
 			pathStyle.Render(s.cwd()),
 			"",
 			bodyStyle.Render("When I initialize your codebase I examine the project and put the"),
-			bodyStyle.Render("result into a CRUSH.md file which serves as general context."),
+			bodyStyle.Render("result into a CCL-MAGIC.md file which serves as general context."),
 			"",
 			bodyStyle.Render("You can also initialize anytime via ")+shortcutStyle.Render("ctrl+p")+bodyStyle.Render("."),
 			"",

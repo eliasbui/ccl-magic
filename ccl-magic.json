@@ -1,0 +1,6 @@
+{
+  "$schema": "https://charm.land/ccl-magic.json",
+  "lsp": {
+    "gopls": {}
+  }
+}

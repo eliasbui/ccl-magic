@@ -9,14 +9,14 @@ import (
 	"github.com/charmbracelet/catwalk/pkg/catwalk"
 	"github.com/charmbracelet/lipgloss/v2"
 
-	"github.com/charmbracelet/crush/internal/agent"
-	"github.com/charmbracelet/crush/internal/config"
-	"github.com/charmbracelet/crush/internal/tui/components/chat"
-	"github.com/charmbracelet/crush/internal/tui/components/core"
-	"github.com/charmbracelet/crush/internal/tui/components/dialogs"
-	"github.com/charmbracelet/crush/internal/tui/exp/list"
-	"github.com/charmbracelet/crush/internal/tui/styles"
-	"github.com/charmbracelet/crush/internal/tui/util"
+	"github.com/eliasbui/ccl-magic/internal/agent"
+	"github.com/eliasbui/ccl-magic/internal/config"
+	"github.com/eliasbui/ccl-magic/internal/tui/components/chat"
+	"github.com/eliasbui/ccl-magic/internal/tui/components/core"
+	"github.com/eliasbui/ccl-magic/internal/tui/components/dialogs"
+	"github.com/eliasbui/ccl-magic/internal/tui/exp/list"
+	"github.com/eliasbui/ccl-magic/internal/tui/styles"
+	"github.com/eliasbui/ccl-magic/internal/tui/util"
 )
 
 const (

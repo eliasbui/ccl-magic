@@ -11,8 +11,8 @@ import (
 
 	"github.com/bmatcuk/doublestar/v4"
 	"github.com/charlievieth/fastwalk"
-	"github.com/charmbracelet/crush/internal/csync"
-	"github.com/charmbracelet/crush/internal/home"
+	"github.com/eliasbui/ccl-magic/internal/csync"
+	"github.com/eliasbui/ccl-magic/internal/home"
 )
 
 type FileInfo struct {

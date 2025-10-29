@@ -12,7 +12,7 @@ import (
 	"time"
 
 	"charm.land/fantasy"
-	"github.com/charmbracelet/crush/internal/permission"
+	"github.com/eliasbui/ccl-magic/internal/permission"
 )
 
 type DownloadParams struct {

@@ -5,9 +5,9 @@ import (
 	"maps"
 	"time"
 
-	"github.com/charmbracelet/crush/internal/csync"
-	"github.com/charmbracelet/crush/internal/lsp"
-	"github.com/charmbracelet/crush/internal/pubsub"
+	"github.com/eliasbui/ccl-magic/internal/csync"
+	"github.com/eliasbui/ccl-magic/internal/lsp"
+	"github.com/eliasbui/ccl-magic/internal/pubsub"
 )
 
 // LSPEventType represents the type of LSP event

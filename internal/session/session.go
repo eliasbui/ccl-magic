@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/charmbracelet/crush/internal/db"
-	"github.com/charmbracelet/crush/internal/event"
-	"github.com/charmbracelet/crush/internal/pubsub"
+	"github.com/eliasbui/ccl-magic/internal/db"
+	"github.com/eliasbui/ccl-magic/internal/event"
+	"github.com/eliasbui/ccl-magic/internal/pubsub"
 	"github.com/google/uuid"
 )
 

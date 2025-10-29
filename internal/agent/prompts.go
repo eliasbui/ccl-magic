@@ -3,7 +3,7 @@ package agent
 import (
 	_ "embed"
 
-	"github.com/charmbracelet/crush/internal/agent/prompt"
+	"github.com/eliasbui/ccl-magic/internal/agent/prompt"
 )
 
 //go:embed templates/coder.md.tpl

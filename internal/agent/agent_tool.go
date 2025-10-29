@@ -9,9 +9,9 @@ import (
 
 	"charm.land/fantasy"
 
-	"github.com/charmbracelet/crush/internal/agent/prompt"
-	"github.com/charmbracelet/crush/internal/agent/tools"
-	"github.com/charmbracelet/crush/internal/config"
+	"github.com/eliasbui/ccl-magic/internal/agent/prompt"
+	"github.com/eliasbui/ccl-magic/internal/agent/tools"
+	"github.com/eliasbui/ccl-magic/internal/config"
 )
 
 //go:embed templates/agent_tool.md

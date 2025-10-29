@@ -4,9 +4,9 @@ import (
 	"slices"
 
 	tea "github.com/charmbracelet/bubbletea/v2"
-	"github.com/charmbracelet/crush/internal/csync"
-	"github.com/charmbracelet/crush/internal/tui/components/core/layout"
-	"github.com/charmbracelet/crush/internal/tui/util"
+	"github.com/eliasbui/ccl-magic/internal/csync"
+	"github.com/eliasbui/ccl-magic/internal/tui/components/core/layout"
+	"github.com/eliasbui/ccl-magic/internal/tui/util"
 )
 
 type Group[T Item] struct {

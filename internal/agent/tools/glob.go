@@ -12,7 +12,7 @@ import (
 	"strings"
 
 	"charm.land/fantasy"
-	"github.com/charmbracelet/crush/internal/fsext"
+	"github.com/eliasbui/ccl-magic/internal/fsext"
 )
 
 const GlobToolName = "glob"

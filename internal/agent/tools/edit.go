@@ -11,13 +11,13 @@ import (
 	"time"
 
 	"charm.land/fantasy"
-	"github.com/charmbracelet/crush/internal/csync"
-	"github.com/charmbracelet/crush/internal/diff"
-	"github.com/charmbracelet/crush/internal/fsext"
-	"github.com/charmbracelet/crush/internal/history"
+	"github.com/eliasbui/ccl-magic/internal/csync"
+	"github.com/eliasbui/ccl-magic/internal/diff"
+	"github.com/eliasbui/ccl-magic/internal/fsext"
+	"github.com/eliasbui/ccl-magic/internal/history"
 
-	"github.com/charmbracelet/crush/internal/lsp"
-	"github.com/charmbracelet/crush/internal/permission"
+	"github.com/eliasbui/ccl-magic/internal/lsp"
+	"github.com/eliasbui/ccl-magic/internal/permission"
 )
 
 type EditParams struct {

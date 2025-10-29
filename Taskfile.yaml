@@ -35,11 +35,11 @@ tasks:
   build:
     desc: Run build
     vars:
-      LDFLAGS: '{{if .VERSION}}-ldflags="-X github.com/charmbracelet/crush/internal/version.Version={{.VERSION}}"{{end}}'
+      LDFLAGS: '{{if .VERSION}}-ldflags="-X github.com/eliasbui/ccl-magic/internal/version.Version={{.VERSION}}"{{end}}'
     cmds:
       - go build {{.LDFLAGS}} .
     generates:
-      - crush
+      - ccl-magic
 
   run:
     desc: Run build
@@ -59,14 +59,14 @@ tasks:
   dev:
     desc: Run with profiling enabled
     env:
-      CRUSH_PROFILE: true
+      CCL_MAGIC_PROFILE: true
     cmds:
       - go run .
 
   install:
     desc: Install the application
     vars:
-      LDFLAGS: '{{if .VERSION}}-ldflags="-X github.com/charmbracelet/crush/internal/version.Version={{.VERSION}}"{{end}}'
+      LDFLAGS: '{{if .VERSION}}-ldflags="-X github.com/eliasbui/ccl-magic/internal/version.Version={{.VERSION}}"{{end}}'
     cmds:
       - go install {{.LDFLAGS}} -v .
 

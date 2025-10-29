@@ -10,11 +10,11 @@ import (
 	"github.com/charmbracelet/lipgloss/v2"
 	"github.com/charmbracelet/x/ansi"
 
-	"github.com/charmbracelet/crush/internal/config"
-	"github.com/charmbracelet/crush/internal/fsext"
-	"github.com/charmbracelet/crush/internal/history"
-	"github.com/charmbracelet/crush/internal/tui/components/core"
-	"github.com/charmbracelet/crush/internal/tui/styles"
+	"github.com/eliasbui/ccl-magic/internal/config"
+	"github.com/eliasbui/ccl-magic/internal/fsext"
+	"github.com/eliasbui/ccl-magic/internal/history"
+	"github.com/eliasbui/ccl-magic/internal/tui/components/core"
+	"github.com/eliasbui/ccl-magic/internal/tui/styles"
 )
 
 // FileHistory represents a file history with initial and latest versions.

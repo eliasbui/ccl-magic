@@ -1,4 +1,4 @@
-module github.com/charmbracelet/crush
+module github.com/eliasbui/ccl-magic
 
 go 1.25.0
 
